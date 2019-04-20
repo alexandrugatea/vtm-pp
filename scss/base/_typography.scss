@@ -2,3 +2,14 @@ body {
     font-family: $theme-font-family;
     font-size: $theme-font-size-base;
 }
+
+p {
+    color: $theme-body-color;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+a.link{
+    text-decoration: none;
+    color: $theme-accent-color;
+}

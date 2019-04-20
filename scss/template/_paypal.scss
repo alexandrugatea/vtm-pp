@@ -1,0 +1,224 @@
+body {
+    background: $theme-body-background;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.page {
+
+    &-hero {
+        padding: 5% 5%;
+        text-align: center;
+        background-color: $theme-accent-color;
+        position: relative;
+        
+        .image-overlay {
+            background-size: cover!important;
+            background-repeat: no-repeat!important;
+            background-position: center center!important;
+            mix-blend-mode: overlay;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top:0;
+            left:0;
+        }
+    }
+
+    &-title {
+        color: $theme-body-color;
+        position: relative;
+        z-index: 10;
+    }
+}
+
+.page-content {
+    background: rgba(255,255,255,0.02);
+
+    .greeting {
+        font-size: $theme-font-size-base * 1.5;
+        margin-bottom: $theme-gutter;
+        color: $theme-body-color;
+    }
+
+    .message {
+        display: grid;
+        grid-template-columns: auto 300px;
+        margin-bottom: $theme-gutter;
+
+        p {
+            padding-right: $theme-gutter;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+    }
+}
+
+.forms {
+    margin-bottom: 30px;
+    background: url(../images/sparkles.png);
+    background-size: $theme-container-width;
+    background-position: center top;
+
+    .forms-list {
+        width: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: $theme-gutter;
+
+        .form-item {
+            background: $theme-card-background;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.3);
+            padding: $theme-card-spacing * 2;
+            transition: all 0.25s ease-in;
+            
+            &:hover {
+                transform: scale(1.04);
+                box-shadow: 2px 4px 16px 0px rgba(0,0,0,0.3);
+
+                &:before {
+                    border-left: 20px solid lighten($theme-card-background, 5%);
+                    border-top: 50px solid transparent;
+                    border-bottom: 120px solid transparent;
+                }
+            }
+
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                top:0;
+                left:0;
+                width: 0;
+                height: 0;
+                border-top: 20px solid transparent;
+                border-bottom: 150px solid transparent;
+                border-left: 10px solid lighten($theme-card-background, 5%);
+                z-index: 0;
+                transition: all 0.25s ease-in;
+            }
+
+            form {
+                height: 100%;
+                position: relative;
+                z-index: 1;
+            }
+
+            [type="submit"] {
+                position: absolute;
+                z-index: 10;
+                top:0;
+                left:0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+            }
+        }
+
+        .form-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            h4 {
+                color: $theme-body-color;
+                margin-bottom: $theme-card-spacing;
+                font-size: $theme-font-size-base + 4;
+            }
+
+            ul {
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-between;
+                flex-grow: 1;
+
+                li {
+                    
+                    .old-points {
+                        color: darken($theme-body-color, 45%);
+                        font-size: 90%;
+                        display: inline-block;
+                        position: relative;
+
+
+                        &:after {
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            height: 1px;
+                            background: $theme-body-color;
+                            position: absolute;
+                            top:50%;
+                            left:0;
+                            opacity: 0.5;
+                        }
+                    }
+
+                    .current-points {
+                        color: $theme-primary-color;
+                        font-size: $theme-font-size-base + 2;
+                        display: block;
+                    }
+
+                    .price-value {
+                        color: $theme-body-color;
+                        font-size: $theme-font-size-base;
+                    }
+
+                    .price-curency {
+                        color: $theme-body-color;
+                        font-size: $theme-font-size-base;
+                    }
+                }
+            }
+
+            .actions {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: $theme-card-spacing;
+
+                .buy {
+                    padding: 10px 15px;
+                    line-height: 15px;
+                    background: $theme-accent-color;
+                    color: $theme-body-color-inverted;
+                    border-radius: 4px;
+                    box-shadow: none;
+                    border: none;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    font-size: $theme-font-size-base - 2;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    width: 100%;
+    background: darken($theme-body-background, 10%);
+
+    .copyright {
+        max-width: 1260px;
+        margin: auto;
+        padding: $theme-gutter / 2 $theme-gutter;
+
+        p {
+            text-align: center;
+            color: $theme-body-color;
+            opacity: 0.8;
+            line-height: 1;
+            margin: 0;
+        }
+    }
+}

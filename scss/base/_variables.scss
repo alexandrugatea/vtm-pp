@@ -1,10 +1,18 @@
 // import fonts
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 // variables
 
-$theme-body-background:             #f6f6f6;
-$theme-body-color:                  #212121;
+$theme-body-background:             #212121;
+$theme-body-color:                  #f6f6f6;
+$theme-body-color-inverted:         #ffffff;
 
-$theme-font-family:                 sans-serif;
+$theme-accent-color:                #DD2C00;
+$theme-primary-color:               #03A9F4;
+
+$theme-font-family:                 "Montserrat", sans-serif;
 $theme-font-size-base:              16px;
-$theme-card-background:             #ffffff;
+$theme-card-background:             #424242;
+
+$theme-container-width:             1260px;
+$theme-gutter:                      30px;
+$theme-card-spacing:                10px;

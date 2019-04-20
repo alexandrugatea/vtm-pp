@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +7,185 @@
 ul {
   list-style-type: none; }
 
+.container {
+  padding: 30px;
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto; }
+
 body {
-  font-family: sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 16px; }
+
+p {
+  color: #f6f6f6;
+  line-height: 1.7;
+  margin-bottom: 15px; }
+
+a.link {
+  text-decoration: none;
+  color: #DD2C00; }
+
+body {
+  background: #212121; }
+
+body::-webkit-scrollbar {
+  display: none; }
+
+.page-hero {
+  padding: 5% 5%;
+  text-align: center;
+  background-color: #DD2C00;
+  position: relative; }
+  .page-hero .image-overlay {
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    mix-blend-mode: overlay;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0; }
+.page-title {
+  color: #f6f6f6;
+  position: relative;
+  z-index: 10; }
+
+.page-content {
+  background: rgba(255, 255, 255, 0.02); }
+  .page-content .greeting {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #f6f6f6; }
+  .page-content .message {
+    display: grid;
+    grid-template-columns: auto 300px;
+    margin-bottom: 30px; }
+    .page-content .message p {
+      padding-right: 30px; }
+    .page-content .message img {
+      display: block;
+      max-width: 100%; }
+
+.forms {
+  margin-bottom: 30px;
+  background: url(../images/sparkles.png);
+  background-size: 1260px;
+  background-position: center top; }
+  .forms .forms-list {
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 30px; }
+    .forms .forms-list .form-item {
+      background: #424242;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 1px 2px 4px 0px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      transition: all 0.25s ease-in; }
+      .forms .forms-list .form-item:hover {
+        transform: scale(1.04);
+        box-shadow: 2px 4px 16px 0px rgba(0, 0, 0, 0.3); }
+        .forms .forms-list .form-item:hover:before {
+          border-left: 20px solid #4f4f4f;
+          border-top: 50px solid transparent;
+          border-bottom: 120px solid transparent; }
+      .forms .forms-list .form-item:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 20px solid transparent;
+        border-bottom: 150px solid transparent;
+        border-left: 10px solid #4f4f4f;
+        z-index: 0;
+        transition: all 0.25s ease-in; }
+      .forms .forms-list .form-item form {
+        height: 100%;
+        position: relative;
+        z-index: 1; }
+      .forms .forms-list .form-item [type="submit"] {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer; }
+    .forms .forms-list .form-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%; }
+      .forms .forms-list .form-content h4 {
+        color: #f6f6f6;
+        margin-bottom: 10px;
+        font-size: 20px; }
+      .forms .forms-list .form-content ul {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-grow: 1; }
+        .forms .forms-list .form-content ul li .old-points {
+          color: #838383;
+          font-size: 90%;
+          display: inline-block;
+          position: relative; }
+          .forms .forms-list .form-content ul li .old-points:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #f6f6f6;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            opacity: 0.5; }
+        .forms .forms-list .form-content ul li .current-points {
+          color: #03A9F4;
+          font-size: 18px;
+          display: block; }
+        .forms .forms-list .form-content ul li .price-value {
+          color: #f6f6f6;
+          font-size: 16px; }
+        .forms .forms-list .form-content ul li .price-curency {
+          color: #f6f6f6;
+          font-size: 16px; }
+      .forms .forms-list .form-content .actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px; }
+        .forms .forms-list .form-content .actions .buy {
+          padding: 10px 15px;
+          line-height: 15px;
+          background: #DD2C00;
+          color: #ffffff;
+          border-radius: 4px;
+          box-shadow: none;
+          border: none;
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 14px;
+          cursor: pointer; }
+
+.footer {
+  width: 100%;
+  background: #080808; }
+  .footer .copyright {
+    max-width: 1260px;
+    margin: auto;
+    padding: 15px 30px; }
+    .footer .copyright p {
+      text-align: center;
+      color: #f6f6f6;
+      opacity: 0.8;
+      line-height: 1;
+      margin: 0; }
 
 /*# sourceMappingURL=style.css.map */
