@@ -36,6 +36,7 @@ body::-webkit-scrollbar {
   padding: 5% 5%;
   text-align: center;
   background-color: #DD2C00;
+  background-image: linear-gradient(45deg, #DD2C00 15%, #03A9F4 85%);
   position: relative; }
   @media (max-width: 767px) {
     .page-hero {
