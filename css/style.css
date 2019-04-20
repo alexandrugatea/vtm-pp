@@ -37,6 +37,9 @@ body::-webkit-scrollbar {
   text-align: center;
   background-color: #DD2C00;
   position: relative; }
+  @media (max-width: 767px) {
+    .page-hero {
+      padding: 15% 5%; } }
   .page-hero .image-overlay {
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -59,17 +62,26 @@ body::-webkit-scrollbar {
     margin-bottom: 30px;
     color: #f6f6f6; }
   .page-content .message {
-    display: grid;
-    grid-template-columns: auto 300px;
-    margin-bottom: 30px; }
+    display: flex;
+    flex-wrap: wrap; }
     .page-content .message p {
-      padding-right: 30px; }
-    .page-content .message img {
-      display: block;
-      max-width: 100%; }
+      padding-right: 30px;
+      flex-grow: 1;
+      max-width: 75%; }
+      @media (max-width: 767px) {
+        .page-content .message p {
+          padding-right: 0;
+          max-width: 100%; } }
+    .page-content .message .paypal-image {
+      flex: 0 0 25%; }
+      @media (max-width: 767px) {
+        .page-content .message .paypal-image {
+          flex: 0 0 50%; } }
+      .page-content .message .paypal-image img {
+        display: block;
+        max-width: 100%; }
 
 .forms {
-  margin-bottom: 30px;
   background: url(../images/sparkles.png);
   background-size: 1260px;
   background-position: center top; }
