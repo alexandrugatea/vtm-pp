@@ -352,6 +352,18 @@
             })
 
             // that's it
+
+
+            // ensure the footer always sticks to page bottom
+            var pageHero = $('.page-hero').outerHeight();
+            var pageContent = $('.page-content').outerHeight();
+            var pageFooter = $('.footer').outerHeight();
+            var windowHeight = $(window).height();
+            var formsContainer = $('.forms');
+
+            var formsMinHeight = windowHeight - (pageHero + pageContent + pageFooter);
+
+            formsContainer.css('min-height', formsMinHeight + 'px');
         });
     </script>
 
