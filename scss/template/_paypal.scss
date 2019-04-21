@@ -37,22 +37,37 @@ body::-webkit-scrollbar {
         color: $theme-body-color;
         position: relative;
         z-index: 10;
+        text-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+
+        @media (max-width: 767px) {
+            font-size: 25px;
+        }
     }
 }
 
 .page-content {
     background: rgba(255,255,255,0.02);
 
-    .greeting {
+    @media (max-width: 767px) {
+        text-align: center;
+    }
+
+    .greeting h3 {
         font-size: $theme-font-size-base * 1.5;
         margin-bottom: $theme-gutter;
         color: $theme-body-color;
+        font-weight: 600;
+        
+
+        @media (max-width: 767px) {
+            font-size: $theme-font-size-base + 2;
+            margin-bottom: 20px;
+        }
     }
 
     .message {
         display: flex;
         flex-wrap: wrap;
-
 
         p {
             padding-right: $theme-gutter;
@@ -69,12 +84,17 @@ body::-webkit-scrollbar {
             flex: 0 0 25%;
 
             @media (max-width: 767px) {
-                flex: 0 0 50%;
+                flex: 0 0 100%;
             }
 
             img {
                 display: block;
                 max-width: 100%;
+
+                @media (max-width: 767px) {
+                    max-width: 50%;
+                    margin: auto;
+                }
             }
         }
     }
@@ -88,11 +108,19 @@ body::-webkit-scrollbar {
     .forms-list {
         width: auto;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax($theme-card-min-width, 1fr));
         grid-gap: $theme-gutter;
+        
+        @media (max-width: 767px) {
+            grid-gap: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
 
         .form-item {
-            background: $theme-card-background;
+            background-color: $theme-card-background;
+            background-image: url('../images/card-bg.png');
+            background-size: cover;
             border-radius: 4px;
             overflow: hidden;
             position: relative;
@@ -142,6 +170,16 @@ body::-webkit-scrollbar {
                 opacity: 0;
                 cursor: pointer;
             }
+
+            &.has-offer {
+                &:before {
+                    border-left: 10px solid $theme-primary-color;
+                }
+
+                &:hover:before {
+                    border-left: 20px solid $theme-primary-color;
+                }
+            }
         }
 
         .form-content {
@@ -149,26 +187,49 @@ body::-webkit-scrollbar {
             flex-direction: column;
             height: 100%;
 
-            h4 {
-                color: $theme-body-color;
-                margin-bottom: $theme-card-spacing;
-                font-size: $theme-font-size-base + 4;
-            }
+            .offer-details {
+                display: grid;
+                grid-template-columns: auto auto;
+                grid-template-rows: auto auto;
+                grid-gap: 10px;
 
-            ul {
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-                flex-grow: 1;
+                .offer-title {
 
-                li {
-                    
+                    h4 {
+                        color: $theme-body-color;
+                        margin-bottom: 0;
+                        font-size: $theme-font-size-base + 4;
+                    }
+                }
+
+                .offer-price {
+                    text-align: right;
+
+                    .price-value {
+                        color: $theme-body-color;
+                        font-size: $theme-font-size-base + 2;
+                        font-weight: 600;
+                    }
+
+                    .price-curency {
+                        color: $theme-body-color;
+                        font-size: $theme-font-size-base - 4;
+                    }
+                }
+
+                .offer-points {
+
                     .old-points {
                         color: darken($theme-body-color, 45%);
                         font-size: 90%;
                         display: inline-block;
                         position: relative;
 
+                        span {
+                            font-size: $theme-font-size-base - 3;
+                            font-weight: 400;
+                            letter-spacing: -0.3px;
+                        }
 
                         &:after {
                             content: '';
@@ -186,38 +247,36 @@ body::-webkit-scrollbar {
                     .current-points {
                         color: $theme-primary-color;
                         font-size: $theme-font-size-base + 2;
+                        font-weight: 600;
                         display: block;
-                    }
+                        white-space: nowrap;
 
-                    .price-value {
-                        color: $theme-body-color;
-                        font-size: $theme-font-size-base;
-                    }
-
-                    .price-curency {
-                        color: $theme-body-color;
-                        font-size: $theme-font-size-base;
+                        span {
+                            font-size: $theme-font-size-base - 3;
+                            font-weight: 400;
+                            letter-spacing: -0.3px;
+                        }
                     }
                 }
-            }
 
-            .actions {
-                display: flex;
-                justify-content: flex-end;
-                margin-top: $theme-card-spacing;
-
-                .buy {
-                    padding: 10px 15px;
-                    line-height: 15px;
-                    background: $theme-accent-color;
-                    color: $theme-body-color-inverted;
-                    border-radius: 4px;
-                    box-shadow: none;
-                    border: none;
-                    text-transform: uppercase;
-                    font-weight: 700;
-                    font-size: $theme-font-size-base - 2;
-                    cursor: pointer;
+                .offer-actions {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-top: $theme-card-spacing;
+    
+                    .buy {
+                        padding: 10px;
+                        line-height: 15px;
+                        background: $theme-accent-color;
+                        color: $theme-body-color-inverted;
+                        border-radius: 4px;
+                        box-shadow: none;
+                        border: none;
+                        text-transform: uppercase;
+                        font-weight: 700;
+                        font-size: $theme-font-size-base - 2;
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -237,8 +296,9 @@ body::-webkit-scrollbar {
             text-align: center;
             color: $theme-body-color;
             opacity: 0.8;
-            line-height: 1;
+            line-height: 16px;
             margin: 0;
+            font-size: $theme-font-size-base - 4;
         }
     }
 }
